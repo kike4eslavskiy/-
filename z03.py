@@ -1,5 +1,13 @@
 Grapf = [[0,1], [0,2], [0,3], [2,3], [1,6], [4,5]]
 
+def update_matrix(matrixOfConnections, graph, level, current_node):
+    nodes = count_nodes(graph)[0]
+    for i in nodes:
+        if edge_exsist(current_node, i, graph):
+            if current_node == i:
+                continue
+            matrixOfConnections[current_node][i] = level + 1
+
 def search_connection(a, b, graph):
     start = a
     end = b
