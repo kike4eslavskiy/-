@@ -1,3 +1,4 @@
+import timeit
 for i in array:
     if i < min_1:
         min_2 = min_1
@@ -7,5 +8,6 @@ for i in array:
     else:
         if min_1 > i < min_2:  # Если i меньше, то i становится новым мин вторым значением
             min_2 = i
-
+time = timeit.default_timer() - start
+    return ("%.10f" % time).rstrip('0')
         
