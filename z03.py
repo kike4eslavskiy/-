@@ -1,5 +1,6 @@
+import time
 Grapf = [[0,1], [0,2], [0,3], [2,3], [1,6], [4,5]]
-
+start_time = time.time()
 def update_matrix(matrixOfConnections, graph, level, current_node):
     nodes = count_nodes(graph)[0] #Получает список всех узлов в графе
     for i in nodes:
@@ -49,3 +50,6 @@ def initialize_matrix(amount_of_nodes): #Определяем функцию д�
 
 for i in search_connection(1, 2, Grapf):
     print(i)
+    end_time = time.time() # Записываем время окончания выполнения программы
+execution_time = end_time - start_time # Вычисляем и выводим время выполнения
+print(f'Время выполнения программы: {execution_time:.6f} секунд')
