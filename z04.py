@@ -38,14 +38,15 @@ shortest_distances = dijkstra(graph, start_vertex)
 print(f"Кратчайшие расстояния от вершины {start_vertex}:")
 for vertex, distance in shortest_distances.items():
     print(f"До {vertex}: {distance}")
+
     def dexter(graph, start):
-    distances = {vertex: float('infinity') for vertex in graph}
+    distances = {vertex: float('infinity') for vertex in graph} #Создание словаря distances, который будет хранить кратчайшие расстояния от начальной вершины до каждой вершины графа
     distances[start] = 0
-    visited = set()
+    visited = set() #Создание пустого множества visited, которое будет содержать вершины, которые уже были посещены
     
-    while len(visited) < len(graph):
+    while len(visited) < len(graph): #Начало цикла, который продолжается до тех пор, пока не будут посещены все вершины в графе
         current_vertex = None
-        min_distance = float('infinity')
+        min_distance = float('infinity') #Инициализируем current_vertex как None, что будет использоваться для хранения текущей вершины. Инициализация min_distance как бесконечности, для сравнения расстояния
         for vertex in graph:
             if vertex not in visited and distances[vertex] < min_distance:
                 min_distance = distances[vertex]
@@ -54,7 +55,7 @@ for vertex, distance in shortest_distances.items():
         if current_vertex is None:
             break
         
-        visited.add(current_vertex)
+        visited.add(current_vertex) #Добавление текущей вершины current_vertex в множество посещенных вершин
         
         for neighbor, weight in graph[current_vertex].items():
             distance = distances[current_vertex] + weight
