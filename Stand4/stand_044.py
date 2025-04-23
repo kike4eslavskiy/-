@@ -1,10 +1,18 @@
 import timeit
-def get_vertices(edges):
-    """Получение списка вершин из списка ребер."""
-    vertices = set()
-    for edge in edges:
-        vertices.add(edge[0])
-        vertices.add(edge[1])
-    return list(vertices)
- time = timeit.default_timer() - start
-    return ("%.10f" % time).rstrip('0')
+from dexter import dexter
+
+def test():
+    graph = {}
+    
+    start_time = timeit.default_timer()
+    result = dexter(graph, 'A')
+    elapsed_time = timeit.default_timer() - start_time
+    
+    print("Кратчайшие расстояния:")
+    for vertex, distance in result.items():
+        print(f"{vertex}: {distance}")
+    
+    print(f"\nВремя выполнения: {elapsed_time:.6f} секунд")
+
+if name == "__main__":
+    test()
